@@ -7,125 +7,7 @@
   <meta name="description" content="Відкритий курс CyberLab: 16 практичних місій із кібербезпеки, цифрової розвідки, криптографії та аналізу інцидентів.">
   <title>CyberLab — курс із кібербезпеки</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307101f'/%3E%3Cpath d='M32 8 51 16v14c0 13-8 21-19 27C21 51 13 43 13 30V16z' fill='none' stroke='%2300d9ff' stroke-width='4'/%3E%3Cpath d='M24 31a8 8 0 1 1 16 0v11H24z' fill='%2300d9ff'/%3E%3C/svg%3E">
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #07101f;
-      --panel: #0d1a2d;
-      --panel-soft: #101f35;
-      --line: #1c3554;
-      --text: #eef6ff;
-      --muted: #9fb2ca;
-      --cyan: #00d9ff;
-      --blue: #197bff;
-      --green: #68f0a0;
-      --gold: #ffd05a;
-      --violet: #c38bff;
-      --radius: 1.25rem;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      font-synthesis: none;
-      text-rendering: optimizeLegibility;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.6;
-      background-image: radial-gradient(ellipse at 78% 4%, rgba(0, 143, 255, .13), transparent 34rem),
-                        linear-gradient(180deg, #07101f 0%, #081525 55%, #07101f 100%);
-    }
-    a { color: inherit; }
-    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-    .wrap { width: min(1160px, calc(100% - 2.5rem)); margin-inline: auto; }
-    .topbar { border-bottom: 1px solid rgba(108, 157, 212, .16); background: rgba(7, 16, 31, .86); }
-    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
-    .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font-weight: 800; letter-spacing: .08em; }
-    .brand-mark { width: 2.35rem; height: 2.35rem; display: grid; place-items: center; border: 1px solid rgba(0,217,255,.72); border-radius: .8rem; color: var(--cyan); box-shadow: 0 0 22px rgba(0,217,255,.14), inset 0 0 16px rgba(0,217,255,.09); }
-    .brand small { display: block; color: var(--muted); font-size: .67rem; letter-spacing: .18em; font-weight: 600; line-height: 1.1; }
-    .nav-links { display: flex; align-items: center; gap: 1.65rem; }
-    .nav-links a { color: #c5d4e7; text-decoration: none; font-size: .93rem; }
-    .nav-links a:hover { color: var(--cyan); }
-    .nav-cta { border: 1px solid rgba(0,217,255,.5); border-radius: 999px; padding: .58rem 1rem; color: var(--cyan) !important; }
-    .hero { padding: clamp(3.1rem, 7vw, 6.5rem) 0 3.7rem; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(380px, 1.05fr); align-items: center; gap: 1.2rem; }
-    .eyebrow { display: inline-flex; align-items: center; gap: .55rem; color: var(--cyan); font-size: .8rem; letter-spacing: .16em; font-weight: 750; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 1.7rem; height: 1px; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
-    h1 { margin: 1rem 0 .65rem; max-width: 660px; font-size: clamp(2.8rem, 6.2vw, 5.5rem); line-height: .99; letter-spacing: -.055em; }
-    h1 span { color: var(--cyan); text-shadow: 0 0 30px rgba(0,217,255,.25); }
-    .lead { max-width: 570px; color: #c0d0e3; font-size: clamp(1.05rem, 1.6vw, 1.23rem); margin: 1.2rem 0 1.75rem; }
-    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem; }
-    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 3.1rem; padding: .75rem 1.2rem; border-radius: .8rem; text-decoration: none; font-weight: 750; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
-    .button:hover { transform: translateY(-2px); }
-    .button-primary { color: #04101d; background: var(--cyan); box-shadow: 0 8px 30px rgba(0,217,255,.18); }
-    .button-primary:hover { background: #58e8ff; box-shadow: 0 10px 34px rgba(0,217,255,.3); }
-    .button-secondary { border: 1px solid #34516f; color: #e1eefb; background: rgba(13,26,45,.7); }
-    .button-secondary:hover { border-color: var(--cyan); }
-    .facts { display: flex; flex-wrap: wrap; gap: 1.1rem 1.7rem; margin-top: 2rem; color: var(--muted); font-size: .9rem; }
-    .facts strong { color: var(--text); font-size: 1.05rem; margin-right: .25rem; }
-    .hero-art { position: relative; min-height: 360px; }
-    .hero-art img { display: block; width: 112%; max-width: none; height: auto; margin-left: -2%; border-radius: 1.5rem; mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 91%, transparent 100%); }
-    .art-frame { position: absolute; inset: 6% -1% 5% 8%; border: 1px solid rgba(0,217,255,.24); border-radius: 1.5rem; pointer-events: none; transform: translate(12px, 12px); }
-    .section { padding: 4.5rem 0; }
-    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 2rem; }
-    .section-head h2 { font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.035em; margin: .4rem 0 0; }
-    .section-head p { max-width: 450px; color: var(--muted); margin: 0; }
-    .path-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .9rem; }
-    .path-card { min-height: 178px; padding: 1.15rem; border-radius: 1rem; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(16,31,53,.94), rgba(10,22,39,.88)); position: relative; overflow: hidden; }
-    .path-card::after { content: ""; position: absolute; width: 7rem; height: 7rem; right: -3.1rem; bottom: -3.1rem; border: 1px solid currentColor; border-radius: 50%; opacity: .13; box-shadow: 0 0 0 1rem rgba(255,255,255,.01), 0 0 0 2rem rgba(255,255,255,.01); }
-    .path-card .num { color: var(--muted); font: 700 .75rem/1.2 ui-monospace, monospace; letter-spacing: .12em; }
-    .path-card h3 { font-size: 1.14rem; margin: .72rem 0 .3rem; }
-    .path-card p { color: var(--muted); margin: 0; font-size: .94rem; line-height: 1.5; }
-    .c-cyan { color: var(--cyan); } .c-green { color: var(--green); } .c-gold { color: var(--gold); } .c-violet { color: var(--violet); }
-    .missions-section { padding-top: 3.2rem; }
-    .group { margin: 2.1rem 0 2.5rem; }
-    .group-title { display: flex; align-items: center; gap: .75rem; margin-bottom: .85rem; }
-    .group-title h3 { margin: 0; font-size: 1.15rem; }
-    .group-title span { color: var(--muted); font: 700 .75rem/1.2 ui-monospace, monospace; letter-spacing: .1em; }
-    .group-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
-    .mission-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .85rem; }
-    .mission { display: flex; flex-direction: column; min-height: 220px; padding: 1.1rem; border: 1px solid var(--line); border-radius: 1rem; background: rgba(13,26,45,.76); }
-    .mission-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: .7rem; }
-    .mission-icon { width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border: 1px solid #21415e; border-radius: .8rem; background: #0a1d32; font-size: 1.35rem; }
-    .mission-number { color: #8299b3; font: 700 .8rem/1 ui-monospace, monospace; }
-    .mission h4 { margin: 0 0 .5rem; font-size: 1.03rem; line-height: 1.35; }
-    .mission p { margin: 0 0 1rem; color: var(--muted); font-size: .9rem; line-height: 1.48; }
-    .mission-status { margin-top: auto; color: #8fa5be; font-size: .8rem; font-weight: 700; letter-spacing: .04em; }
-    .footer { border-top: 1px solid rgba(108,157,212,.16); padding: 1.7rem 0 2.2rem; color: #8fa5be; font-size: .85rem; }
-    .footer-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
-    .footer a { color: #b8d8ef; text-decoration-color: rgba(184,216,239,.4); }
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr 1fr; gap: .5rem; }
-      .hero-art { min-height: 290px; }
-      .path-grid, .mission-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 650px) {
-      .wrap { width: min(100% - 1.4rem, 540px); }
-      .nav { min-height: 66px; }
-      .nav-links { gap: .8rem; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      .nav-cta { padding: .48rem .75rem; }
-      .hero { padding-top: 2.5rem; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-art { min-height: 0; margin: .4rem -.7rem 0; }
-      .hero-art img { width: 100%; margin: 0; border-radius: 1rem; mask-image: linear-gradient(180deg, #000 70%, transparent 100%); }
-      .art-frame { inset: 4% 3% 8% 3%; transform: translate(6px, 7px); border-radius: 1rem; }
-      .section { padding: 3.2rem 0; }
-      .section-head { display: block; }
-      .section-head p { margin-top: .8rem; }
-      .path-grid { grid-template-columns: 1fr 1fr; gap: .65rem; }
-      .path-card { min-height: 165px; padding: .9rem; }
-      .mission-grid { grid-template-columns: 1fr; }
-      .mission { min-height: 0; }
-      .footer-row { align-items: flex-start; flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
@@ -134,6 +16,10 @@
         <span class="brand-mark" aria-hidden="true">⌘</span>
         <span>CYBERLAB<small>КІБЕРБЕЗПЕКА</small></span>
       </a>
+      <div class="nav-links">
+<a href="#missions">Місії</a>
+        <a class="nav-cta" href="#missions">Перейти до місій</a>
+      </div>
     </nav>
   </header>
 
@@ -143,21 +29,26 @@
         <div>
           <div class="eyebrow">CYBERLAB // навчальний курс</div>
           <h1>Досліджуй.<br><span>Аналізуй.</span><br>Захищай.</h1>
-          <p class="lead">Практичний курс із кібербезпеки: досліджуйте цифрові сліди, перевіряйте інформацію та розкривайте справи в інтерактивних місіях.</p>
+          <p class="lead">Пройдіть шлях кібердетектива: від цифрових слідів і фішингу до мережевого аналізу та розслідування інциденту.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://t.me/cybercource_bot?start=6a4f90bafeed1f6aae08542c" target="_blank" rel="noopener"><span aria-hidden="true">🎟️</span> Вхідний квиток до курсу</a>
+            <a class="button button-primary" href="#missions">Переглянути 16 місій</a>
+          </div>
+          <div class="facts" aria-label="Про курс">
+            <span><strong>16</strong> тем</span>
+            <span><strong>16</strong> CTF-місій</span>
+            <span><strong>4</strong> тематичні блоки</span>
           </div>
         </div>
         <div class="hero-art" aria-label="Юний аналітик працює в кіберлабораторії">
-          <img src="cyberlab-hero.png" alt="Учень-аналітик у синьо освітленій кіберлабораторії працює за ноутбуком">
+          <img src="assets/cyberlab-hero.png" alt="Учень-аналітик у синьо освітленій кіберлабораторії працює за ноутбуком">
           <div class="art-frame" aria-hidden="true"></div>
         </div>
       </div>
     </section>
-
-    <section class="section missions-section wrap" id="missions">
+<section class="section missions-section wrap" id="missions">
       <div class="section-head">
         <div><div class="eyebrow">ОБЕРІТЬ СПРАВУ</div><h2>Місії CyberLab</h2></div>
+        <p>Кожна місія матиме окрему сторінку. Посилання на них додамо, коли сторінки будуть готові.</p>
       </div>
       <div id="mission-groups"></div>
     </section>
