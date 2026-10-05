@@ -33,9 +33,14 @@
           <div class="hero-actions">
             <a class="button button-primary" href="#missions">Переглянути 16 місій</a>
           </div>
-                 </div>
+          <div class="facts" aria-label="Про курс">
+            <span><strong>16</strong> тем</span>
+            <span><strong>16</strong> CTF-місій</span>
+            <span><strong>4</strong> тематичні блоки</span>
+          </div>
+        </div>
         <div class="hero-art" aria-label="Юний аналітик працює в кіберлабораторії">
-          <img src="cyberlab-hero.png" alt="Учень-аналітик у синьо освітленій кіберлабораторії працює за ноутбуком">
+          <img src="assets/cyberlab-hero.png" alt="Учень-аналітик у синьо освітленій кіберлабораторії працює за ноутбуком">
           <div class="art-frame" aria-hidden="true"></div>
         </div>
       </div>
@@ -73,12 +78,7 @@
       {n:15, group:4, icon:"🚨", title:"Комп’ютер поводиться дивно", text:"Відновіть хронологію інциденту за журналами подій."},
       {n:16, group:4, icon:"🏁", title:"Фінальний CTF: CyberLab", text:"Об’єднайте докази з попередніх місій і підготуйте звіт."}
     ];
-    const groups = [
-      {id:1, title:"Цифрові сліди й OSINT", range:"01—04"},
-      {id:2, title:"Паролі й криптографічний захист", range:"05—08"},
-      {id:3, title:"Мережі, трафік і доступ", range:"09—12"},
-      {id:4, title:"Вразливості та розслідування", range:"13—16"}
-    ];
+   
     const mount = document.getElementById("mission-groups");
     mount.innerHTML = groups.map(group => {
       const cards = missions.filter(m => m.group === group.id).map(m => `
