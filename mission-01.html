@@ -4,173 +4,95 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07101f">
-  <meta name="description" content="Місія 01 CyberLab: розслідуйте цифрові сліди Alex_404.">
-  <title>Місія 01 — Ти вже залишив сліди | CyberLab</title>
+  <meta name="description" content="Відкритий курс CyberLab: 16 практичних місій із кібербезпеки, цифрової розвідки, криптографії та аналізу інцидентів.">
+  <title>CyberLab — курс із кібербезпеки</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307101f'/%3E%3Cpath d='M32 8 51 16v14c0 13-8 21-19 27C21 51 13 43 13 30V16z' fill='none' stroke='%2300d9ff' stroke-width='4'/%3E%3Cpath d='M24 31a8 8 0 1 1 16 0v11H24z' fill='%2300d9ff'/%3E%3C/svg%3E">
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #07101f;
-      --panel: #0d1a2d;
-      --panel-soft: #101f35;
-      --line: #1c3554;
-      --text: #eef6ff;
-      --muted: #9fb2ca;
-      --cyan: #00d9ff;
-      --blue: #197bff;
-      --green: #68f0a0;
-      --gold: #ffd05a;
-      --radius: 1.25rem;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      font-synthesis: none;
-      text-rendering: optimizeLegibility;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.6;
-      background-image: radial-gradient(ellipse at 78% 4%, rgba(0,143,255,.13), transparent 34rem),
-                        linear-gradient(180deg, #07101f 0%, #081525 55%, #07101f 100%);
-    }
-    a { color: inherit; }
-    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-    .wrap { width: min(1160px, calc(100% - 2.5rem)); margin-inline: auto; }
-    .topbar { border-bottom: 1px solid rgba(108,157,212,.16); background: rgba(7,16,31,.86); }
-    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
-    .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font-weight: 800; letter-spacing: .08em; }
-    .brand-mark { width: 2.35rem; height: 2.35rem; display: grid; place-items: center; border: 1px solid rgba(0,217,255,.72); border-radius: .8rem; color: var(--cyan); box-shadow: 0 0 22px rgba(0,217,255,.14), inset 0 0 16px rgba(0,217,255,.09); }
-    .brand small { display: block; color: var(--muted); font-size: .67rem; letter-spacing: .18em; font-weight: 600; line-height: 1.1; }
-    .nav-links { display: flex; align-items: center; gap: 1.65rem; }
-    .nav-links a { color: #c5d4e7; text-decoration: none; font-size: .93rem; }
-    .nav-links a:hover { color: var(--cyan); }
-    .nav-cta { border: 1px solid rgba(0,217,255,.5); border-radius: 999px; padding: .58rem 1rem; color: var(--cyan) !important; }
-    .hero { padding: clamp(3.1rem, 7vw, 5rem) 0 2rem; }
-    .eyebrow { display: inline-flex; align-items: center; gap: .55rem; color: var(--cyan); font-size: .8rem; letter-spacing: .16em; font-weight: 750; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 1.7rem; height: 1px; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
-    h1 { margin: 1rem 0 .65rem; max-width: 780px; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1; letter-spacing: -.055em; }
-    h1 span { color: var(--cyan); text-shadow: 0 0 30px rgba(0,217,255,.25); }
-    .lead { max-width: 760px; color: #c0d0e3; font-size: clamp(1.05rem, 1.6vw, 1.2rem); margin: 1.1rem 0 0; }
-    .case-label { margin-top: 1.4rem; display: inline-flex; align-items: center; gap: .55rem; color: var(--muted); font: 700 .82rem/1.2 ui-monospace, monospace; letter-spacing: .12em; }
-    .case-label::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px rgba(104,240,160,.65); }
-    .section { padding: 2.5rem 0; }
-    .dossier-frame { padding: .7rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(13,26,45,.76); box-shadow: 0 20px 60px rgba(0,0,0,.22); }
-    .dossier-frame img { display: block; width: 100%; height: auto; border-radius: .75rem; }
-    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1.25rem; }
-    .section-head h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); line-height: 1.1; letter-spacing: -.035em; margin: .4rem 0 0; }
-    .section-head p { max-width: 450px; color: var(--muted); margin: 0; }
-    .task-card { padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(16,31,53,.94), rgba(10,22,39,.92)); }
-    .task-card p { color: #c0d0e3; margin: 0 0 1rem; }
-    .task-card p:last-child { margin-bottom: 0; }
-    .task-card strong { color: var(--text); }
-    .task-list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 1.25rem 0 0; padding: 0; counter-reset: task; }
-    .task-list li { counter-increment: task; min-height: 112px; padding: 1rem; border: 1px solid #21415e; border-radius: .85rem; background: rgba(7,16,31,.55); color: #c0d0e3; }
-    .task-list li::before { content: "0" counter(task); display: block; margin-bottom: .5rem; color: var(--cyan); font: 700 .78rem/1 ui-monospace, monospace; letter-spacing: .12em; }
-    .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .85rem; }
-    .resource-card { min-height: 142px; display: flex; flex-direction: column; justify-content: space-between; gap: .8rem; padding: 1.1rem; border: 1px solid var(--line); border-radius: 1rem; background: rgba(13,26,45,.76); }
-    .resource-card h3 { margin: 0; font-size: 1.05rem; }
-    .resource-card p { margin: 0; color: var(--muted); font-size: .9rem; }
-    .button { display: inline-flex; width: fit-content; align-items: center; justify-content: center; min-height: 2.8rem; padding: .65rem 1rem; border-radius: .75rem; text-decoration: none; font-size: .9rem; font-weight: 750; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
-    .button:hover { transform: translateY(-2px); }
-    .button-primary { color: #04101d; background: var(--cyan); box-shadow: 0 8px 30px rgba(0,217,255,.18); }
-    .button-primary:hover { background: #58e8ff; box-shadow: 0 10px 34px rgba(0,217,255,.3); }
-    .button-secondary { border: 1px solid #34516f; color: #e1eefb; background: rgba(13,26,45,.7); }
-    .button-secondary:hover { border-color: var(--cyan); }
-    .footer { border-top: 1px solid rgba(108,157,212,.16); margin-top: 2rem; padding: 1.7rem 0 2.2rem; color: #8fa5be; font-size: .85rem; }
-    .footer-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
-    .footer a { color: #b8d8ef; text-decoration-color: rgba(184,216,239,.4); }
-    @media (max-width: 760px) { .task-list, .resource-grid { grid-template-columns: 1fr; } .task-list li { min-height: 0; } }
-    @media (max-width: 650px) {
-      .wrap { width: min(100% - 1.4rem, 540px); }
-      .nav { min-height: 66px; }
-      .nav-links { gap: .7rem; }
-      .nav-links a:first-child { display: none; }
-      .nav-cta { padding: .48rem .75rem; }
-      .hero { padding-top: 2.5rem; }
-      .section { padding: 2rem 0; }
-      .section-head { display: block; }
-      .section-head p { margin-top: .7rem; }
-      .footer-row { align-items: flex-start; flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
     <nav class="nav wrap" aria-label="Основна навігація">
-      <a class="brand" href="index.html" aria-label="CyberLab — на головну">
+      <a class="brand" href="#top" aria-label="CyberLab — на початок">
         <span class="brand-mark" aria-hidden="true">⌘</span>
         <span>CYBERLAB<small>КІБЕРБЕЗПЕКА</small></span>
       </a>
       <div class="nav-links">
-        <a href="index.html#missions">Усі місії</a>
-        <a class="nav-cta" href="index.html#missions">На головну</a>
+<a href="#missions">Місії</a>
+        <a class="nav-cta" href="#missions">Перейти до місій</a>
       </div>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero wrap">
-      <div class="eyebrow">CYBERLAB // CASE 001</div>
-      <h1>Ти вже залишив <span>сліди</span></h1>
-      <p class="lead">У мережі знайдено досьє користувача Alex_404. Розшифруйте фрагменти й з’ясуйте, хто залишив ці цифрові сліди.</p>
-      <div class="case-label">МІСІЯ 01 · РОЗСЛІДУВАННЯ ВІДКРИТО</div>
-    </section>
-
-    <section class="section wrap" aria-label="Досьє Alex_404">
-      <div class="dossier-frame">
-        <img src="mission-01-dalek-dossier.png" alt="Досьє Alex_404: фото робота, двійкові координати та зашифрований телефонний сигнал">
+    <section class="hero">
+      <div class="hero-grid wrap">
+        <div>
+          <div class="eyebrow">CYBERLAB // навчальний курс</div>
+          <h1>Досліджуй.<br><span>Аналізуй.</span><br>Захищай.</h1>
+          <p class="lead">Пройдіть шлях кібердетектива: від цифрових слідів і фішингу до мережевого аналізу та розслідування інциденту.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#missions">Переглянути 16 місій</a>
+          </div>
+          <div class="facts" aria-label="Про курс">
+            <span><strong>16</strong> тем</span>
+            <span><strong>16</strong> CTF-місій</span>
+            <span><strong>4</strong> тематичні блоки</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Юний аналітик працює в кіберлабораторії">
+          <img src="assets/cyberlab-hero.png" alt="Учень-аналітик у синьо освітленій кіберлабораторії працює за ноутбуком">
+          <div class="art-frame" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
-
-    <section class="section wrap" id="task">
+<section class="section missions-section wrap" id="missions">
       <div class="section-head">
-        <div><div class="eyebrow">ВАШЕ ЗАВДАННЯ</div><h2>Зберіть докази</h2></div>
-        <p>Працюйте з даними на зображенні. Відповіді можна перевірити в чатботі.</p>
+        <div><div class="eyebrow">ОБЕРІТЬ СПРАВУ</div><h2>Місії CyberLab</h2></div>
+        <p>Кожна місія матиме окрему сторінку. Посилання на них додамо, коли сторінки будуть готові.</p>
       </div>
-      <div class="task-card">
-        <p><strong>Що потрібно з’ясувати:</strong></p>
-        <ol class="task-list">
-          <li>Розшифруйте координати й визначте місце.</li>
-          <li>За фото та загадкою встановіть, ким є Alex і яке ім’я він обрав.</li>
-          <li>Декодуйте телефонний сигнал із позначкою 1963 року.</li>
-        </ol>
-      </div>
+      <div id="mission-groups"></div>
     </section>
 
-    <section class="section wrap" aria-label="Матеріали місії">
-      <div class="section-head">
-        <div><div class="eyebrow">МАТЕРІАЛИ</div><h2>Продовжити місію</h2></div>
-        <p>Посилання можна додати в HTML перед завантаженням сторінки на GitHub.</p>
-      </div>
-      <div class="resource-grid">
-        <article class="resource-card">
-          <h3>Коротке відео</h3>
-          <p>Цифровий слід: що залишається в мережі.</p>
-          <!-- Замініть VIDEO_URL на посилання на відео. -->
-          <a class="button button-secondary" href="VIDEO_URL">Переглянути відео</a>
-        </article>
-        <article class="resource-card">
-          <h3>Чатбот CyberLab</h3>
-          <p>Підказки до місії та перевірка відповідей.</p>
-          <!-- Замініть BOT_URL на посилання на Telegram-бота. -->
-          <a class="button button-primary" href="BOT_URL">Відкрити чатбот</a>
-        </article>
-        <article class="resource-card">
-          <h3>Зворотний зв’язок</h3>
-          <p>Поділіться враженнями після розслідування.</p>
-          <!-- Замініть FEEDBACK_URL на посилання на форму. -->
-          <a class="button button-secondary" href="FEEDBACK_URL">Заповнити форму</a>
-        </article>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
     <div class="footer-row wrap"><span>CYBERLAB · навчальний курс із кібербезпеки</span><a href="#top">На початок</a></div>
   </footer>
+
+  <script>
+    const missions = [
+      {n:1, group:1, icon:"🕵️", title:"Ти вже залишив сліди", text:"Знайдіть вигаданого персонажа за нешкідливими цифровими слідами."},
+      {n:2, group:1, icon:"🔎", title:"OSINT: Інтернет як база доказів", text:"Перевірте факти про Alex лише за відкритими джерелами."},
+      {n:3, group:1, icon:"📍", title:"Де зроблено це фото?", text:"Визначте місце за деталями зображення та метаданими."},
+      {n:4, group:1, icon:"🎣", title:"Не вір повідомленню", text:"Знайдіть фішингову атаку та підтвердіть висновок доказами."},
+      {n:5, group:2, icon:"🔐", title:"Що відбувається з вашим паролем?", text:"Знайдіть небезпечно збережені паролі у витоку бази."},
+      {n:6, group:2, icon:"#️⃣", title:"Хеш: цифровий відбиток", text:"Зіставте контрольні хеші й визначте змінений файл."},
+      {n:7, group:2, icon:"🔑", title:"Шифрування: секрет, який можна повернути", text:"Знайдіть ключ у підказках і розшифруйте повідомлення."},
+      {n:8, group:2, icon:"✍️", title:"Чи справді це написав він?", text:"Перевірте, який цифровий підпис не відповідає документу."},
+      {n:9, group:3, icon:"🌐", title:"Що відбувається, коли відкриваєш сайт?", text:"Відновіть маршрут запиту в навчальному мережевому дампі."},
+      {n:10, group:3, icon:"📡", title:"Wireshark: побачити невидиме", text:"Знайдіть незвичний запит у готовому файлі .pcapng."},
+      {n:11, group:3, icon:"🚪", title:"Порти: двері комп’ютера", text:"Дослідіть навчальний сервер і знайдіть потрібну службу."},
+      {n:12, group:3, icon:"🍪", title:"Сайт уже впізнав вас", text:"Знайдіть помилку в моделі роботи сесії та cookies."},
+      {n:13, group:4, icon:"💉", title:"Коли сайт надто довіряє користувачу", text:"Знайдіть помилку у спеціально створеній CTF-формі."},
+      {n:14, group:4, icon:"🐍", title:"Python як інструмент кібердетектива", text:"Напишіть скрипт, що знайде аномалію у великому файлі."},
+      {n:15, group:4, icon:"🚨", title:"Комп’ютер поводиться дивно", text:"Відновіть хронологію інциденту за журналами подій."},
+      {n:16, group:4, icon:"🏁", title:"Фінальний CTF: CyberLab", text:"Об’єднайте докази з попередніх місій і підготуйте звіт."}
+    ];
+    const groups = [
+      {id:1, title:"Цифрові сліди й OSINT", range:"01—04"},
+      {id:2, title:"Паролі й криптографічний захист", range:"05—08"},
+      {id:3, title:"Мережі, трафік і доступ", range:"09—12"},
+      {id:4, title:"Вразливості та розслідування", range:"13—16"}
+    ];
+    const mount = document.getElementById("mission-groups");
+    mount.innerHTML = groups.map(group => {
+      const cards = missions.filter(m => m.group === group.id).map(m => `
+        <article class="mission">
+          <div class="mission-top"><span class="mission-icon" aria-hidden="true">${m.icon}</span><span class="mission-number">CASE ${String(m.n).padStart(2,"0")}</span></div>
+          <h4>${m.title}</h4><p>${m.text}</p><span class="mission-status">Перейти</span>
+        </article>`).join("");
+      return `<section class="group" aria-label="${group.title}"><div class="group-title"><h3>${group.title}</h3><span>${group.range}</span><i class="group-line" aria-hidden="true"></i></div><div class="mission-grid">${cards}</div></section>`;
+    }).join("");
+  </script>
 </body>
 </html>
