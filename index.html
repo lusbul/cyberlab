@@ -17,8 +17,7 @@
         <span>CYBERLAB<small>КІБЕРБЕЗПЕКА</small></span>
       </a>
       <div class="nav-links">
-        <a href="#route">Маршрут</a>
-        <a href="#missions">Місії</a>
+<a href="#missions">Місії</a>
         <a class="nav-cta" href="#missions">Перейти до місій</a>
       </div>
     </nav>
@@ -46,21 +45,7 @@
         </div>
       </div>
     </section>
-
-    <section class="section wrap" id="route">
-      <div class="section-head">
-        <div><div class="eyebrow">МАРШРУТ</div><h2>Чотири етапи дослідження</h2></div>
-        <p>У кожній місії є коротке пояснення та практична справа. Працюйте з навчальними матеріалами й доказами, а не з реальними чужими системами.</p>
-      </div>
-      <div class="path-grid">
-        <article class="path-card c-cyan"><div class="num">01 — 04</div><h3>Цифрові сліди</h3><p>OSINT, геолокація, метадані та соціальна інженерія.</p></article>
-        <article class="path-card c-green"><div class="num">05 — 08</div><h3>Захист даних</h3><p>Паролі, хеші, шифрування та цифровий підпис.</p></article>
-        <article class="path-card c-gold"><div class="num">09 — 12</div><h3>Мережі й доступ</h3><p>DNS, трафік, порти, cookies і сесії.</p></article>
-        <article class="path-card c-violet"><div class="num">13 — 16</div><h3>Аналіз інцидентів</h3><p>Вразливості, Python, журнали подій і фінальний CTF.</p></article>
-      </div>
-    </section>
-
-    <section class="section missions-section wrap" id="missions">
+<section class="section missions-section wrap" id="missions">
       <div class="section-head">
         <div><div class="eyebrow">ОБЕРІТЬ СПРАВУ</div><h2>Місії CyberLab</h2></div>
         <p>Кожна місія матиме окрему сторінку. Посилання на них додамо, коли сторінки будуть готові.</p>
@@ -104,7 +89,7 @@
       const cards = missions.filter(m => m.group === group.id).map(m => `
         <article class="mission">
           <div class="mission-top"><span class="mission-icon" aria-hidden="true">${m.icon}</span><span class="mission-number">CASE ${String(m.n).padStart(2,"0")}</span></div>
-          <h4>${m.title}</h4><p>${m.text}</p><span class="mission-status">ОКРЕМА СТОРІНКА МІСІЇ</span>
+          <h4>${m.title}</h4><p>${m.text}</p><span class="mission-status">Перейти</span>
         </article>`).join("");
       return `<section class="group" aria-label="${group.title}"><div class="group-title"><h3>${group.title}</h3><span>${group.range}</span><i class="group-line" aria-hidden="true"></i></div><div class="mission-grid">${cards}</div></section>`;
     }).join("");
