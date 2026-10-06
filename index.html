@@ -193,15 +193,37 @@
       {id:3, title:"Мережі, трафік і доступ", range:"09—12"},
       {id:4, title:"Вразливості та розслідування", range:"13—16"}
     ];
-    const mount = document.getElementById("mission-groups");
-    mount.innerHTML = groups.map(group => {
-      const cards = missions.filter(m => m.group === group.id).map(m => `
-        <article class="mission">
-          <div class="mission-top"><span class="mission-icon" aria-hidden="true">${m.icon}</span><span class="mission-number">CASE ${String(m.n).padStart(2,"0")}</span></div>
-          <h4>${m.title}</h4><p>${m.text}</p>${m.n === 1 ? '<a class="mission-status" href="./mission-01.html">Перейти</a>' : '<span class="mission-status">Перейти</span>'}
-        </article>`).join("");
-      return `<section class="group" aria-label="${group.title}"><div class="group-title"><h3>${group.title}</h3><span>${group.range}</span><i class="group-line" aria-hidden="true"></i></div><div class="mission-grid">${cards}</div></section>`;
-    }).join("");
-  </script>
+   const mount = document.getElementById("mission-groups");
+
+mount.innerHTML = groups.map(group => {
+  const cards = missions
+    .filter(m => m.group === group.id)
+    .map(m => `
+      <article class="mission">
+        <div class="mission-top">
+          <span class="mission-icon" aria-hidden="true">${m.icon}</span>
+          <span class="mission-number">CASE ${String(m.n).padStart(2, "0")}</span>
+        </div>
+        <h4>${m.title}</h4>
+        <p>${m.text}</p>
+        <a class="mission-status"
+           href="./mission-${String(m.n).padStart(2, "0")}.html">
+          Перейти
+        </a>
+      </article>
+    `).join("");
+
+  return `
+    <section class="group" aria-label="${group.title}">
+      <div class="group-title">
+        <h3>${group.title}</h3>
+        <span>${group.range}</span>
+        <i class="group-line" aria-hidden="true"></i>
+      </div>
+      <div class="mission-grid">${cards}</div>
+    </section>
+  `;
+}).join("");
+</script>
 </body>
 </html>
