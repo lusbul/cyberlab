@@ -207,7 +207,7 @@ mount.innerHTML = groups.map(group => {
         <h4>${m.title}</h4>
         <p>${m.text}</p>
         <a class="mission-status"
-           href="./mission-${String(m.n).padStart(2, "0")}.html">
+           href="./mission${String(m.n).padStart(2, "0")}/mission-${String(m.n).padStart(2, "0")}.html">
           Перейти
         </a>
       </article>
