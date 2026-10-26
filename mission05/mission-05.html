@@ -1,8 +1,164 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Місія 05 · Що відбувається з паролем? — CyberLab</title><style>:root{color-scheme:dark;font-family:Segoe UI,Arial,sans-serif}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#0a3450,#07101f 65%);color:#eaf7ff;line-height:1.55}main{max-width:1060px;margin:auto;padding:25px 20px 70px}nav{display:flex;justify-content:space-between;border-bottom:1px solid #2b526c;padding:15px 0}a{color:#43e5ff}h1{font-size:clamp(30px,5vw,54px);line-height:1.1}h2{color:#6de9ff}.hero{width:100%;max-height:460px;object-fit:cover;border-radius:18px;border:1px solid #245b79}.panel{background:#0d2034;border:1px solid #285573;border-radius:18px;padding:22px;margin:20px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.btn,button{background:#075477;color:#fff;border:1px solid #25caff;border-radius:11px;padding:12px 17px;cursor:pointer;font:inherit;text-decoration:none;display:inline-block;margin:5px 5px 5px 0}.btn:hover,button:hover{background:#087ca7}button:disabled{opacity:.5;cursor:not-allowed}input,select{background:#08192b;color:white;border:1px solid #4e8ca7;border-radius:8px;padding:12px;font:inherit;max-width:100%}pre,.record{white-space:pre-wrap;overflow-wrap:anywhere;background:#071526;padding:14px;border-radius:9px;color:#a5e4fc}small,.muted{color:#a9c0d2}.ok{color:#6df1a9}.bad{color:#ffac9f}.bubble{background:#142d45;border-radius:15px;padding:15px;margin:12px 0}.you{background:#184d62;margin-left:15%}.hidden{display:none}iframe{max-width:100%;border:0;border-radius:12px}@media print{nav,.controls,button,.btn,iframe{display:none!important}body{background:white;color:black}.panel,.bubble{background:white;color:black;border:1px solid #888}.muted{color:#333}}</style></head><body><main><nav><strong>⌘ CYBERLAB // CASE 005</strong><a href="../index.html">Усі місії ↗</a></nav><p class="muted">МІСІЯ 05 · РОЗСЛІДУВАННЯ ВИТОКУ</p><h1>🔐 Що насправді відбувається з вашим паролем?</h1><p>Як сайт перевіряє пароль, якщо не зберігає його у відкритому вигляді?</p><img class="hero" src="mission-05-hero.jpg" alt="Ілюстрація місії про захист паролів і роботу веббота"><section class="panel"><h2>🚨 INCIDENT UPDATE</h2><p>Після фішингової атаки фахівці CyberLab знайшли фрагмент навчальної бази. Розробники застосували різні способи зберігання паролів. Що небезпечно?</p><div class="record">anna  Sunflower26!
-max   5f4dcc3b5aa765d61d8327deb882cf99
-alex  $2b$12$...
-lina  $argon2id$v=19$m=...</div><p><a class="btn" href="cyberlab-bot05.html">🕵️ Розпочати розслідування з вебботом</a></p><small>Лише бот відкриває ключ завершення місії та PDF-звіт.</small></section><section class="panel"><h2>🎬 Відео до місії</h2>
-<details class="video-fold"><summary class="btn" style="list-style:none;display:inline-block">▶ Переглянути навчальне відео</summary>
-<div style="aspect-ratio:16/9;max-width:750px;margin-top:16px"><iframe width="100%" height="100%" loading="lazy" allowfullscreen src="https://www.youtube-nocookie.com/embed/GQ0rDbJCKhQ" title="Навчальне відео про захист паролів"></iframe></div>
-<p><a href="https://youtu.be/GQ0rDbJCKhQ" target="_blank" rel="noopener">Відкрити відео на YouTube ↗</a></p></details></section>
-<section class="panel"><h2>📝 Форма для відповідей</h2><p>Надішліть відповіді через Google Форму.</p><a class="btn" href="https://forms.gle/XAZKWwviQrBrLvcg9" target="_blank" rel="noopener noreferrer">📝 Відкрити форму для відповідей ↗</a><p><small>Форма окрема від веббота: фінальний FLAG і PDF-звіт доступні лише після проходження бота.</small></p></section><section class="panel"><h2>🧪 Практики: навчання та самоперевірка</h2><p class="muted">Можна повторювати без обмежень. Тут немає ключів місії або PDF-звіту.</p><div class="grid"><div class="panel"><h3>01 · Цифровий відбиток</h3><p>Справжній SHA-256: порівняйте cat, Cat і cat!</p><a class="btn" href="practice-01-hash.html">Спробувати →</a></div><div class="panel"><h3>02 · Навіщо salt?</h3><p>Змоделюйте однакові паролі з різними солями.</p><a class="btn" href="practice-02-salt.html">Спробувати →</a></div><div class="panel"><h3>03 · Аудит бази</h3><p>Знайдіть ризики у фрагменті навчальної бази.</p><a class="btn" href="practice-03-audit.html">Спробувати →</a></div></div></section><section class="panel"><h2>💡 Що потрібно зрозуміти</h2><p><b>Plaintext</b> — пароль у відкритому вигляді. <b>Хешування</b> — одностороннє перетворення. <b>Salt</b> — випадкове значення для кожного запису. <b>bcrypt та Argon2id</b> — спеціальні алгоритми зберігання паролів, що ускладнюють масовий перебір.</p><p>Швидкий SHA-256 корисний для перевірки цілісності, але сам по собі не є належним способом зберігання паролів.</p></section></main></body></html>
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07101f">
+<meta name="description" content="CyberLab. Місія 05: хешування, salt, bcrypt, Argon2id і розслідування витоку бази паролів.">
+<title>Місія 05 — Що відбувається з вашим паролем? | CyberLab</title>
+<style>
+    :root {
+      color-scheme: dark;
+      --bg: #07101f;
+      --panel: #0d1a2d;
+      --panel-soft: #101f35;
+      --line: #1c3554;
+      --text: #eef6ff;
+      --muted: #9fb2ca;
+      --cyan: #00d9ff;
+      --blue: #197bff;
+      --green: #68f0a0;
+      --gold: #ffd05a;
+      --radius: 1.25rem;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.6;
+      background-image: radial-gradient(ellipse at 78% 4%, rgba(0,143,255,.13), transparent 34rem),
+                        linear-gradient(180deg, #07101f 0%, #081525 55%, #07101f 100%);
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .wrap { width: min(1160px, calc(100% - 2.5rem)); margin-inline: auto; }
+    .topbar { border-bottom: 1px solid rgba(108,157,212,.16); background: rgba(7,16,31,.86); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font-weight: 800; letter-spacing: .08em; }
+    .brand-mark { width: 2.35rem; height: 2.35rem; display: grid; place-items: center; border: 1px solid rgba(0,217,255,.72); border-radius: .8rem; color: var(--cyan); box-shadow: 0 0 22px rgba(0,217,255,.14), inset 0 0 16px rgba(0,217,255,.09); }
+    .brand small { display: block; color: var(--muted); font-size: .67rem; letter-spacing: .18em; font-weight: 600; line-height: 1.1; }
+    .nav-links { display: flex; align-items: center; gap: 1.65rem; }
+    .nav-links a { color: #c5d4e7; text-decoration: none; font-size: .93rem; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-cta { border: 1px solid rgba(0,217,255,.5); border-radius: 999px; padding: .58rem 1rem; color: var(--cyan) !important; }
+    .hero { padding: clamp(3.1rem, 7vw, 5rem) 0 2rem; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .55rem; color: var(--cyan); font-size: .8rem; letter-spacing: .16em; font-weight: 750; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 1.7rem; height: 1px; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+    h1 { margin: 1rem 0 .65rem; max-width: 780px; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1; letter-spacing: -.055em; }
+    h1 span { color: var(--cyan); text-shadow: 0 0 30px rgba(0,217,255,.25); }
+    .lead { max-width: 760px; color: #c0d0e3; font-size: clamp(1.05rem, 1.6vw, 1.2rem); margin: 1.1rem 0 0; }
+    .case-label { margin-top: 1.4rem; display: inline-flex; align-items: center; gap: .55rem; color: var(--muted); font: 700 .82rem/1.2 ui-monospace, monospace; letter-spacing: .12em; }
+    .case-label::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px rgba(104,240,160,.65); }
+    .section { padding: 2.5rem 0; }
+    .dossier-frame { padding: .7rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(13,26,45,.76); box-shadow: 0 20px 60px rgba(0,0,0,.22); }
+    .dossier-frame img { display: block; width: 100%; height: auto; border-radius: .75rem; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1.25rem; }
+    .section-head h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); line-height: 1.1; letter-spacing: -.035em; margin: .4rem 0 0; }
+    .section-head p { max-width: 450px; color: var(--muted); margin: 0; }
+    .task-card { padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(16,31,53,.94), rgba(10,22,39,.92)); }
+    .task-card p { color: #c0d0e3; margin: 0 0 1rem; }
+    .task-card p:last-child { margin-bottom: 0; }
+    .task-card strong { color: var(--text); }
+    .task-list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 1.25rem 0 0; padding: 0; counter-reset: task; }
+    .task-list li { counter-increment: task; min-height: 112px; padding: 1rem; border: 1px solid #21415e; border-radius: .85rem; background: rgba(7,16,31,.55); color: #c0d0e3; }
+    .task-list li::before { content: "0" counter(task); display: block; margin-bottom: .5rem; color: var(--cyan); font: 700 .78rem/1 ui-monospace, monospace; letter-spacing: .12em; }
+    .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .85rem; }
+    .resource-card { min-height: 142px; display: flex; flex-direction: column; justify-content: space-between; gap: .8rem; padding: 1.1rem; border: 1px solid var(--line); border-radius: 1rem; background: rgba(13,26,45,.76); }
+    .resource-card h3 { margin: 0; font-size: 1.05rem; }
+    .resource-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .button { display: inline-flex; width: fit-content; align-items: center; justify-content: center; min-height: 2.8rem; padding: .65rem 1rem; border-radius: .75rem; text-decoration: none; font-size: .9rem; font-weight: 750; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: #04101d; background: var(--cyan); box-shadow: 0 8px 30px rgba(0,217,255,.18); }
+    .button-primary:hover { background: #58e8ff; box-shadow: 0 10px 34px rgba(0,217,255,.3); }
+    .button-secondary { border: 1px solid #34516f; color: #e1eefb; background: rgba(13,26,45,.7); }
+    .button-secondary:hover { border-color: var(--cyan); }
+    .footer { border-top: 1px solid rgba(108,157,212,.16); margin-top: 2rem; padding: 1.7rem 0 2.2rem; color: #8fa5be; font-size: .85rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    .footer a { color: #b8d8ef; text-decoration-color: rgba(184,216,239,.4); }
+    @media (max-width: 760px) { .task-list, .resource-grid { grid-template-columns: 1fr; } .task-list li { min-height: 0; } }
+    @media (max-width: 650px) {
+      .wrap { width: min(100% - 1.4rem, 540px); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: .7rem; }
+      .nav-links a:first-child { display: none; }
+      .nav-cta { padding: .48rem .75rem; }
+      .hero { padding-top: 2.5rem; }
+      .section { padding: 2rem 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: .7rem; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+  
+    .dossier-frame img{max-height:490px;object-fit:cover}
+    .incident-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .db{font: .93rem/1.9 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;color:#a9eaff;background:#07101f;border:1px solid #21415e;border-radius:1rem;padding:1.2rem}
+    .resource-card{min-height:165px}
+    .resource-card .button{font-size:.85rem}
+    details.video details,details.video{width:100%}
+    details.video summary{cursor:pointer;list-style:none}
+    details.video summary::-webkit-details-marker{display:none}
+    .video-content{padding-top:1.2rem;max-width:780px}
+    .video-content iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:.9rem}
+    .subhead{color:var(--cyan);font:750 .75rem ui-monospace,monospace;letter-spacing:.13em}
+    .inline-note{color:var(--muted);font-size:.88rem}
+    @media(max-width:760px){.incident-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="topbar"><nav class="nav wrap" aria-label="Основна навігація">
+<a class="brand" href="../index.html"><span class="brand-mark">⌘</span><span>CYBERLAB<small>КІБЕРБЕЗПЕКА</small></span></a>
+<div class="nav-links"><a href="../index.html#missions">Усі місії</a><a class="nav-cta" href="../index.html#missions">На головну</a></div>
+</nav></header>
+<main>
+<section class="hero wrap">
+<div class="eyebrow">CYBERLAB // PASSWORD SECURITY</div>
+<h1>Що насправді відбувається <span>з вашим паролем?</span></h1>
+<p class="lead">Після фішингової атаки CyberLab виявив фрагмент бази користувачів. Як перевірити пароль, не зберігаючи його у відкритому вигляді? Дослідіть цифрові докази.</p>
+<div class="case-label">МІСІЯ 05 · РОЗСЛІДУВАННЯ ВІДКРИТО</div>
+</section>
+<section class="section wrap" aria-label="Зображення справи">
+<div class="dossier-frame"><img src="mission-05-hero.jpg" alt="Робоче місце аналітика: база користувачів, хеші паролів, salt і захист облікових записів"></div>
+</section>
+<section class="section wrap" id="tasks">
+<div class="section-head"><div><div class="eyebrow">ВАШЕ ЗАВДАННЯ</div><h2>Знайдіть ризики</h2></div><p>Проаналізуйте навчальний фрагмент бази. Відокремте факти від припущень і з’ясуйте, які записи потребують захисту.</p></div>
+<div class="task-card">
+<div class="incident-grid">
+<div><div class="subhead">CYBERLAB // INCIDENT UPDATE</div><h3>🚨 Виявлено витік</h3><p>Після зупинки фішингової атаки фахівці виявили чотири різні способи зберігання паролів. Не всі з них безпечні.</p><p class="inline-note">Усі записи вигадані та призначені для навчання.</p></div>
+<div class="db">anna   Sunflower26!<br>max    5f4dcc3b5aa765d61d8327deb882cf99<br>alex   $2b$12$...<br>lina   $argon2id$v=19$m=...</div>
+</div>
+<ol class="task-list">
+<li>З'ясуйте, чим відкритий пароль відрізняється від хешу.</li>
+<li>Перевірте, навіщо потрібен унікальний salt і чому SHA-256 недостатньо для паролів.</li>
+<li>Визначте ризики у базі й сформулюйте рекомендації аналітика.</li>
+</ol>
+</div>
+</section>
+<section class="section wrap" id="materials">
+<div class="section-head"><div><div class="eyebrow">МАТЕРІАЛИ</div><h2>Продовжити місію</h2></div><p>Перегляньте відео, потренуйтеся в практиках, а потім виконайте завдання веббота.</p></div>
+<div class="resource-grid">
+<div class="resource-card"><div><h3>Коротке відео</h3><p>Що відбувається з паролем і навіщо потрібне хешування.</p></div>
+<details class="video"><summary class="button button-secondary">▶ Переглянути відео</summary><div class="video-content"><iframe loading="lazy" title="Відео про хешування паролів" src="https://www.youtube-nocookie.com/embed/GQ0rDbJCKhQ" allowfullscreen></iframe><a href="https://youtu.be/GQ0rDbJCKhQ" target="_blank" rel="noopener">Відкрити на YouTube ↗</a></div></details></div>
+<div class="resource-card"><div><h3>Чатбот CyberLab</h3><p>Повне розслідування, перевірка рішень, фінальний ключ і PDF-звіт.</p></div><a class="button button-primary" href="cyberlab-bot05.html">🔒 Пройти місію у вебботі</a></div>
+<div class="resource-card"><div><h3>Форма відповідей</h3><p>Надішліть відповіді у Google Формі.</p></div><a class="button button-secondary" href="https://forms.gle/XAZKWwviQrBrLvcg9" target="_blank" rel="noopener noreferrer">Заповнити форму ↗</a></div>
+</div>
+</section>
+<section class="section wrap" id="practices">
+<div class="section-head"><div><div class="eyebrow">НАВЧАННЯ ТА САМОПЕРЕВІРКА</div><h2>Три практики</h2></div><p>Виконуйте й повторюйте необмежено. Ключ місії та PDF-звіт можна отримати лише у вебботі.</p></div>
+<div class="resource-grid">
+<div class="resource-card"><div><div class="subhead">ПРАКТИКА 01</div><h3>Цифровий відбиток</h3><p>Справжній SHA-256: порівняйте cat, Cat і cat!</p></div><a class="button button-secondary" href="practice-01-hash.html">Відкрити практику ↗</a></div>
+<div class="resource-card"><div><div class="subhead">ПРАКТИКА 02</div><h3>Навіщо salt?</h3><p>Порівняйте однакові паролі з різними солями.</p></div><a class="button button-secondary" href="practice-02-salt.html">Відкрити практику ↗</a></div>
+<div class="resource-card"><div><div class="subhead">ПРАКТИКА 03</div><h3>Аудит бази</h3><p>Знайдіть ризики в навчальних записах користувачів.</p></div><a class="button button-secondary" href="practice-03-audit.html">Відкрити практику ↗</a></div>
+</div>
+</section>
+<section class="section wrap"><div class="section-head"><div><div class="eyebrow">КЛЮЧОВІ ПОНЯТТЯ</div><h2>Що варто запам’ятати</h2></div></div>
+<div class="task-card"><p><strong>Plaintext</strong> — пароль у відкритому вигляді. <strong>Хешування</strong> — одностороннє перетворення. <strong>Salt</strong> — випадкове значення, унікальне для кожного запису. <strong>bcrypt та Argon2id</strong> — алгоритми хешування паролів, що ускладнюють масовий перебір.</p><p>Швидкий SHA-256 корисний для перевірки цілісності, але сам по собі не підходить для безпечного зберігання паролів.</p></div>
+</section>
+</main>
+<footer class="footer"><div class="wrap footer-row"><span>© CYBERLAB · МІСІЯ 05</span><a href="../index.html#missions">Повернутися до всіх місій ↗</a></div></footer>
+</body></html>
