@@ -1,0 +1,129 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Веббот 06 — Підмінене оновлення | CyberLab</title><style>
+    :root {
+      color-scheme: dark;
+      --bg: #07101f;
+      --panel: #0d1a2d;
+      --panel-soft: #101f35;
+      --line: #1c3554;
+      --text: #eef6ff;
+      --muted: #9fb2ca;
+      --cyan: #00d9ff;
+      --blue: #197bff;
+      --green: #68f0a0;
+      --gold: #ffd05a;
+      --radius: 1.25rem;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.6;
+      background-image: radial-gradient(ellipse at 78% 4%, rgba(0,143,255,.13), transparent 34rem),
+                        linear-gradient(180deg, #07101f 0%, #081525 55%, #07101f 100%);
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .wrap { width: min(1160px, calc(100% - 2.5rem)); margin-inline: auto; }
+    .topbar { border-bottom: 1px solid rgba(108,157,212,.16); background: rgba(7,16,31,.86); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font-weight: 800; letter-spacing: .08em; }
+    .brand-mark { width: 2.35rem; height: 2.35rem; display: grid; place-items: center; border: 1px solid rgba(0,217,255,.72); border-radius: .8rem; color: var(--cyan); box-shadow: 0 0 22px rgba(0,217,255,.14), inset 0 0 16px rgba(0,217,255,.09); }
+    .brand small { display: block; color: var(--muted); font-size: .67rem; letter-spacing: .18em; font-weight: 600; line-height: 1.1; }
+    .nav-links { display: flex; align-items: center; gap: 1.65rem; }
+    .nav-links a { color: #c5d4e7; text-decoration: none; font-size: .93rem; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-cta { border: 1px solid rgba(0,217,255,.5); border-radius: 999px; padding: .58rem 1rem; color: var(--cyan) !important; }
+    .hero { padding: clamp(3.1rem, 7vw, 5rem) 0 2rem; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .55rem; color: var(--cyan); font-size: .8rem; letter-spacing: .16em; font-weight: 750; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 1.7rem; height: 1px; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+    h1 { margin: 1rem 0 .65rem; max-width: 780px; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1; letter-spacing: -.055em; }
+    h1 span { color: var(--cyan); text-shadow: 0 0 30px rgba(0,217,255,.25); }
+    .lead { max-width: 760px; color: #c0d0e3; font-size: clamp(1.05rem, 1.6vw, 1.2rem); margin: 1.1rem 0 0; }
+    .case-label { margin-top: 1.4rem; display: inline-flex; align-items: center; gap: .55rem; color: var(--muted); font: 700 .82rem/1.2 ui-monospace, monospace; letter-spacing: .12em; }
+    .case-label::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px rgba(104,240,160,.65); }
+    .section { padding: 2.5rem 0; }
+    .dossier-frame { padding: .7rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(13,26,45,.76); box-shadow: 0 20px 60px rgba(0,0,0,.22); }
+    .dossier-frame img { display: block; width: 100%; height: auto; border-radius: .75rem; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1.25rem; }
+    .section-head h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); line-height: 1.1; letter-spacing: -.035em; margin: .4rem 0 0; }
+    .section-head p { max-width: 450px; color: var(--muted); margin: 0; }
+    .task-card { padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(16,31,53,.94), rgba(10,22,39,.92)); }
+    .task-card p { color: #c0d0e3; margin: 0 0 1rem; }
+    .task-card p:last-child { margin-bottom: 0; }
+    .task-card strong { color: var(--text); }
+    .task-list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 1.25rem 0 0; padding: 0; counter-reset: task; }
+    .task-list li { counter-increment: task; min-height: 112px; padding: 1rem; border: 1px solid #21415e; border-radius: .85rem; background: rgba(7,16,31,.55); color: #c0d0e3; }
+    .task-list li::before { content: "0" counter(task); display: block; margin-bottom: .5rem; color: var(--cyan); font: 700 .78rem/1 ui-monospace, monospace; letter-spacing: .12em; }
+    .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .85rem; }
+    .resource-card { min-height: 142px; display: flex; flex-direction: column; justify-content: space-between; gap: .8rem; padding: 1.1rem; border: 1px solid var(--line); border-radius: 1rem; background: rgba(13,26,45,.76); }
+    .resource-card h3 { margin: 0; font-size: 1.05rem; }
+    .resource-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .button { display: inline-flex; width: fit-content; align-items: center; justify-content: center; min-height: 2.8rem; padding: .65rem 1rem; border-radius: .75rem; text-decoration: none; font-size: .9rem; font-weight: 750; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: #04101d; background: var(--cyan); box-shadow: 0 8px 30px rgba(0,217,255,.18); }
+    .button-primary:hover { background: #58e8ff; box-shadow: 0 10px 34px rgba(0,217,255,.3); }
+    .button-secondary { border: 1px solid #34516f; color: #e1eefb; background: rgba(13,26,45,.7); }
+    .button-secondary:hover { border-color: var(--cyan); }
+    .footer { border-top: 1px solid rgba(108,157,212,.16); margin-top: 2rem; padding: 1.7rem 0 2.2rem; color: #8fa5be; font-size: .85rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    .footer a { color: #b8d8ef; text-decoration-color: rgba(184,216,239,.4); }
+    @media (max-width: 760px) { .task-list, .resource-grid { grid-template-columns: 1fr; } .task-list li { min-height: 0; } }
+    @media (max-width: 650px) {
+      .wrap { width: min(100% - 1.4rem, 540px); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: .7rem; }
+      .nav-links a:first-child { display: none; }
+      .nav-cta { padding: .48rem .75rem; }
+      .hero { padding-top: 2.5rem; }
+      .section { padding: 2rem 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: .7rem; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+  
+    .dossier-frame img{max-height:490px;object-fit:cover}
+    .incident-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .db{font: .93rem/1.9 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;color:#a9eaff;background:#07101f;border:1px solid #21415e;border-radius:1rem;padding:1.2rem}
+    .resource-card{min-height:165px}
+    .resource-card .button{font-size:.85rem}
+    details.video details,details.video{width:100%}
+    details.video summary{cursor:pointer;list-style:none}
+    details.video summary::-webkit-details-marker{display:none}
+    .video-content{padding-top:1.2rem;max-width:780px}
+    .video-content iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:.9rem}
+    .subhead{color:var(--cyan);font:750 .75rem ui-monospace,monospace;letter-spacing:.13em}
+    .inline-note{color:var(--muted);font-size:.88rem}
+    @media(max-width:760px){.incident-grid{grid-template-columns:1fr}}
+
+.game{background:#0d1a2d;border:1px solid #1c3554;border-radius:18px;padding:20px;margin:18px 0}.game h2{margin-top:0}.game button,.game select,.game input:not([type=file]),.game textarea{font:inherit}.game button{background:#073b55;color:white;border:1px solid #00d9ff;border-radius:10px;padding:10px 15px;cursor:pointer;margin:5px}.game button:hover{background:#005e7d}.game input:not([type=file]),.game textarea,.game select{color:#eaf8ff;background:#07101f;border:1px solid #2b5677;padding:10px;border-radius:8px;max-width:100%}.game .ok{color:#68f0a0}.game .bad{color:#ffd05a}.game .hash{word-break:break-all;font-family:monospace;color:#7de8ff}.game .tiles{display:flex;flex-wrap:wrap;gap:10px}.game .tile{padding:12px;border:1px solid #00d9ff;border-radius:10px;background:#102c48;cursor:grab}.game .drop{padding:15px;border:1px dashed #62dfff;border-radius:10px;min-height:68px;margin:10px 0}.game .drop.over{background:#174a62}.game .muted{color:#9fb2ca}.game .step{color:#00d9ff;font-size:.85rem;letter-spacing:.12em}.game .hidden{display:none!important}.game .btn{display:inline-block;background:#073b55;border:1px solid #00d9ff;border-radius:10px;padding:9px 13px;text-decoration:none}.game label{display:block;margin:10px 0}.game .status{padding:10px;border-left:3px solid #00d9ff;margin:12px 0}.game pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#07101f;padding:14px;border-radius:10px}
+@media print{header,.topbar,.footer,.no-print,button{display:none!important}body{background:white!important;color:black!important}.game{color:black!important;background:white!important;border-color:#999!important}.game .hash{color:black!important}}
+</style></head><body><header class="topbar"><nav class="nav wrap"><a class="brand" href="../index.html"><span class="brand-mark">⌘</span><span>CYBERLAB<small>КІБЕРБЕЗПЕКА</small></span></a><div class="nav-links"><a href="mission-06.html">Місія 06</a><a href="../index.html#missions">Усі місії</a></div></nav></header><main class="wrap" style="padding:40px 0 70px"><div class="eyebrow">CYBERLAB // CASE 006 · ВЕББОТ</div><h1>🔬 Підмінене оновлення</h1><p class="lead">Ви — аналітик CyberLab. Розслідуйте інцидент, виконайте всі завдання й отримайте підсумковий звіт.</p><div class="game" id="bot"><div class="step" id="progress"></div><h2 id="heading"></h2><div id="narrative"></div><div id="task"></div><div class="status" id="feedback" aria-live="polite"></div><div class="no-print"><button id="check">Перевірити рішення</button><button id="next" class="hidden">Далі →</button><button id="restart">Почати спочатку</button></div></div><div class="game hidden" id="certificate"><h2>🟢 MISSION 06 COMPLETE</h2><p>Учень: <strong id="student"></strong></p><p>Завершено: <strong id="finished"></strong></p><p>Результати перевірки:</p><ol id="report"></ol><p><strong>Ключ місії:</strong> <code id="flag"></code></p><p>Висновок: збіг із довіреним еталоном підтверджує цілісність вмісту, але не гарантує безпечність файла та не встановлює автора.</p><button class="no-print" onclick="window.print()">🖨 Зберегти PDF-звіт</button><p class="no-print muted">У вікні друку виберіть «Зберегти як PDF».</p></div><script>
+const artifacts={A:'CyberLab_Update_2.6|server=cyberlab|mode=secure',B:'CyberLab_Update_2.6|server=cyberlab|mode=secure ',C:'CyberLab_Update_2.6|server=updates-cyberlab.example|mode=secure'};
+const questions=[
+{title:'Інцидент: три однакові назви',text:'Оновлення CyberLab має три копії A, B, C з однаковими назвою, іконкою і приблизним розміром. Чи достатньо цих ознак, щоб встановити оригінал?',opts:['Так, достатньо назви','Ні, потрібна перевірка вмісту','Так, достатньо іконки'],correct:1,explain:'Назва, іконка й розмір не доводять ідентичності файлів.'},
+{title:'Довірений еталон',text:'CyberLab надав SHA-256 зі свого перевіреного каналу. Який метод порівняння оберете?',opts:['Порівняти назви','Обчислити SHA-256 кожного файла та порівняти з еталоном','Запустити всі EXE'],correct:1,explain:'Перевірка хешу не вимагає запуску підозрілої програми.'},
+{title:'Лабораторія SHA-256',type:'hash',text:'Нижче наведено навчальні дані трьох копій. Натисніть «Обчислити хеші», порівняйте їх з офіційним значенням і виберіть файл, який збігається.'},
+{title:'Пробіл у FILE B',text:'У резервній копії B після secure стоїть зайвий пробіл. Що точно доводить невідповідність SHA-256?',opts:['Файл відрізняється від еталона','Файл містить вірус','Відомо, хто змінив файл'],correct:0,explain:'Хеш виявляє різницю, але не пояснює її причину.'},
+{title:'Адреса сервера у FILE C',text:'У FILE C адресу updates.cyberlab.example замінено на updates-cyberlab.example. Чи може SHA-256 сам назвати змінений рядок?',opts:['Так, покаже рядок','Ні, потрібне окреме порівняння вмісту'],correct:1,explain:'SHA-256 дає контрольне значення, а не перелік змін.'},
+{title:'Папка оновлення',type:'folder',text:'У папці CyberLab п’ять файлів. Порівняння з довіреним списком показало: чотири хеші збігаються, один — ні. Оберіть змінений файл.'},
+{title:'Що ми довели?',text:'У launcher.exe хеш не збігся з еталоном. Який висновок коректний?',opts:['launcher.exe точно заражений','launcher.exe відрізняється від еталонної копії','launcher.exe створив атакувальник'],correct:1,explain:'Невідповідність підтверджує зміну, а не причину чи автора.'},
+{title:'Небезпечна пастка',text:'Ви отримали файл і SHA-256 з одного неперевіреного сайту. Значення збігаються. Чи доведено, що файл безпечний і справді від CyberLab?',opts:['Так, цілком','Ні, джерело еталона також треба перевірити'],correct:1,explain:'Атакувальник може підмінити одночасно файл і опублікований поруч хеш.'},
+{title:'Підсумок справи',type:'sort',text:'Розставте етапи безпечної перевірки в правильному порядку. Перетягуйте картки або використовуйте стрілки.'},
+{title:'Завершення розслідування',text:'Яке питання залишається для наступної місії про цифровий підпис?',opts:['Хто підтвердив файл і його еталон?','Чи однакова назва файла?','Якого кольору іконка?'],correct:0,explain:'Наступна тема — як перевірити джерело й автора за допомогою цифрового підпису.'}
+];
+let index=0,answers=[],verified=false,studentName='';const $=id=>document.getElementById(id);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function digest(s){let b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return Array.from(new Uint8Array(b),x=>x.toString(16).padStart(2,'0')).join('')}
+let official='';let currentSort=[];const order=['Отримати еталон із довіреного джерела','Обчислити SHA-256 отриманого файла','Порівняти повні значення','Зробити обережний висновок про цілісність'];
+function render(){verified=false;let q=questions[index];$('progress').textContent='КРОК '+(index+1)+' / '+questions.length;$('heading').textContent=q.title;$('narrative').innerHTML='<p>'+esc(q.text)+'</p>';$('feedback').textContent='';$('check').classList.remove('hidden');$('next').classList.add('hidden');let el=$('task');el.innerHTML='';if(q.opts){el.innerHTML=q.opts.map((o,i)=>'<label><input type="radio" name="choice" value="'+i+'"> '+esc(o)+'</label>').join('')}else if(q.type==='hash'){el.innerHTML='<p class="muted">Навчальна модель: файли представлені їхнім точним текстовим вмістом; жоден EXE не запускається.</p><button type="button" id="compute">Обчислити хеші</button><div id="hashlist" class="hash"></div><label>Який файл збігається з еталоном? <select id="fileChoice"><option value="">Оберіть</option><option>A</option><option>B</option><option>C</option></select></label>';$('compute').onclick=async()=>{let hs=await Promise.all(Object.values(artifacts).map(digest));official=hs[0];$('hashlist').innerHTML='<p>OFFICIAL SHA-256: '+hs[0]+'</p>'+Object.keys(artifacts).map((k,i)=>'<p>FILE '+k+': '+hs[i]+'</p>').join('')}}else if(q.type==='folder'){el.innerHTML='<pre>config.json   ✓ збіг\nlogo.png      ✓ збіг\nusers.db      ✓ збіг\nmanual.pdf    ✓ збіг\nlauncher.exe  ⚠ невідповідність</pre><label>Файл: <select id="folderChoice"><option value="">Оберіть</option><option>config.json</option><option>logo.png</option><option>users.db</option><option>manual.pdf</option><option>launcher.exe</option></select></label>'}else if(q.type==='sort'){currentSort=[...order].reverse();el.innerHTML='<div id="sort"></div>';drawSort()} }
+function drawSort(){let e=$('sort');e.innerHTML='';currentSort.forEach((s,i)=>{let r=document.createElement('div');r.className='drop';r.draggable=true;r.dataset.i=i;r.innerHTML='<span>'+esc(s)+'</span> <button type="button" aria-label="Перемістити вгору">↑</button><button type="button" aria-label="Перемістити вниз">↓</button>';r.children[1].onclick=()=>move(i,i-1);r.children[2].onclick=()=>move(i,i+1);r.ondragstart=ev=>ev.dataTransfer.setData('text/plain',i);r.ondragover=ev=>ev.preventDefault();r.ondrop=ev=>{ev.preventDefault();move(Number(ev.dataTransfer.getData('text/plain')),i)};e.append(r)})}function move(a,b){if(a<0||b<0||a>=currentSort.length||b>=currentSort.length)return;let x=currentSort.splice(a,1)[0];currentSort.splice(b,0,x);drawSort()}
+$('check').onclick=async()=>{let q=questions[index],ok=false,answer='';if(q.opts){let checked=document.querySelector('input[name=choice]:checked');if(!checked){$('feedback').textContent='Оберіть відповідь.';return}ok=Number(checked.value)===q.correct;answer=q.opts[Number(checked.value)]}else if(q.type==='hash'){answer=$('fileChoice').value;ok=!!official&&answer==='A';if(!official){$('feedback').textContent='Спочатку обчисліть хеші.';return}}else if(q.type==='folder'){answer=$('folderChoice').value;ok=answer==='launcher.exe'}else if(q.type==='sort'){answer=currentSort.join(' → ');ok=currentSort.every((v,i)=>v===order[i])}if(!ok){$('feedback').innerHTML='<span class="bad">Ще не зовсім. Перевірте докази й спробуйте знову.</span>';return}verified=true;answers[index]={question:q.title,answer};$('feedback').innerHTML='<span class="ok">✓ Рішення підтверджено.</span> '+esc(q.explain||'Правильний висновок.');$('check').classList.add('hidden');$('next').classList.remove('hidden');$('next').textContent=index===questions.length-1?'Завершити місію →':'Далі →'};
+$('next').onclick=()=>{if(!verified)return;if(index<questions.length-1){index++;render()}else{finish()}};$('restart').onclick=()=>{if(!confirm('Почати місію спочатку? Поточні відповіді буде скинуто.'))return;index=0;answers=[];$('certificate').classList.add('hidden');$('bot').classList.remove('hidden');render()};
+function finish(){if(answers.length!==questions.length||answers.some(a=>!a)){return}studentName=prompt('Введіть ім’я та прізвище для PDF-звіту:','')||'Учасник CyberLab';$('student').textContent=studentName;$('finished').textContent=new Date().toLocaleString('uk-UA');$('report').innerHTML='';answers.forEach(a=>{let li=document.createElement('li');li.innerHTML='<strong>'+esc(a.question)+'</strong>: '+esc(a.answer);$('report').append(li)});$('flag').textContent='FLAG{SAME_FILE_INTEGRITY}';$('bot').classList.add('hidden');$('certificate').classList.remove('hidden');$('certificate').scrollIntoView({behavior:'smooth'})}render();
+</script></main><footer class="footer"><div class="wrap footer-row">CYBERLAB // CASE 006</div></footer></body></html>
