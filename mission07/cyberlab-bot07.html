@@ -1,0 +1,115 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07101f"><title>CyberLab · Місія 07</title><style>
+    :root {
+      color-scheme: dark;
+      --bg: #07101f;
+      --panel: #0d1a2d;
+      --panel-soft: #101f35;
+      --line: #1c3554;
+      --text: #eef6ff;
+      --muted: #9fb2ca;
+      --cyan: #00d9ff;
+      --blue: #197bff;
+      --green: #68f0a0;
+      --gold: #ffd05a;
+      --radius: 1.25rem;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.6;
+      background-image: radial-gradient(ellipse at 78% 4%, rgba(0,143,255,.13), transparent 34rem),
+                        linear-gradient(180deg, #07101f 0%, #081525 55%, #07101f 100%);
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .wrap { width: min(1160px, calc(100% - 2.5rem)); margin-inline: auto; }
+    .topbar { border-bottom: 1px solid rgba(108,157,212,.16); background: rgba(7,16,31,.86); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font-weight: 800; letter-spacing: .08em; }
+    .brand-mark { width: 2.35rem; height: 2.35rem; display: grid; place-items: center; border: 1px solid rgba(0,217,255,.72); border-radius: .8rem; color: var(--cyan); box-shadow: 0 0 22px rgba(0,217,255,.14), inset 0 0 16px rgba(0,217,255,.09); }
+    .brand small { display: block; color: var(--muted); font-size: .67rem; letter-spacing: .18em; font-weight: 600; line-height: 1.1; }
+    .nav-links { display: flex; align-items: center; gap: 1.65rem; }
+    .nav-links a { color: #c5d4e7; text-decoration: none; font-size: .93rem; }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-cta { border: 1px solid rgba(0,217,255,.5); border-radius: 999px; padding: .58rem 1rem; color: var(--cyan) !important; }
+    .hero { padding: clamp(3.1rem, 7vw, 5rem) 0 2rem; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .55rem; color: var(--cyan); font-size: .8rem; letter-spacing: .16em; font-weight: 750; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 1.7rem; height: 1px; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+    h1 { margin: 1rem 0 .65rem; max-width: 780px; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1; letter-spacing: -.055em; }
+    h1 span { color: var(--cyan); text-shadow: 0 0 30px rgba(0,217,255,.25); }
+    .lead { max-width: 760px; color: #c0d0e3; font-size: clamp(1.05rem, 1.6vw, 1.2rem); margin: 1.1rem 0 0; }
+    .case-label { margin-top: 1.4rem; display: inline-flex; align-items: center; gap: .55rem; color: var(--muted); font: 700 .82rem/1.2 ui-monospace, monospace; letter-spacing: .12em; }
+    .case-label::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px rgba(104,240,160,.65); }
+    .section { padding: 2.5rem 0; }
+    .dossier-frame { padding: .7rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(13,26,45,.76); box-shadow: 0 20px 60px rgba(0,0,0,.22); }
+    .dossier-frame img { display: block; width: 100%; height: auto; border-radius: .75rem; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1.25rem; }
+    .section-head h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); line-height: 1.1; letter-spacing: -.035em; margin: .4rem 0 0; }
+    .section-head p { max-width: 450px; color: var(--muted); margin: 0; }
+    .task-card { padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(16,31,53,.94), rgba(10,22,39,.92)); }
+    .task-card p { color: #c0d0e3; margin: 0 0 1rem; }
+    .task-card p:last-child { margin-bottom: 0; }
+    .task-card strong { color: var(--text); }
+    .task-list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 1.25rem 0 0; padding: 0; counter-reset: task; }
+    .task-list li { counter-increment: task; min-height: 112px; padding: 1rem; border: 1px solid #21415e; border-radius: .85rem; background: rgba(7,16,31,.55); color: #c0d0e3; }
+    .task-list li::before { content: "0" counter(task); display: block; margin-bottom: .5rem; color: var(--cyan); font: 700 .78rem/1 ui-monospace, monospace; letter-spacing: .12em; }
+    .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .85rem; }
+    .resource-card { min-height: 142px; display: flex; flex-direction: column; justify-content: space-between; gap: .8rem; padding: 1.1rem; border: 1px solid var(--line); border-radius: 1rem; background: rgba(13,26,45,.76); }
+    .resource-card h3 { margin: 0; font-size: 1.05rem; }
+    .resource-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .button { display: inline-flex; width: fit-content; align-items: center; justify-content: center; min-height: 2.8rem; padding: .65rem 1rem; border-radius: .75rem; text-decoration: none; font-size: .9rem; font-weight: 750; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: #04101d; background: var(--cyan); box-shadow: 0 8px 30px rgba(0,217,255,.18); }
+    .button-primary:hover { background: #58e8ff; box-shadow: 0 10px 34px rgba(0,217,255,.3); }
+    .button-secondary { border: 1px solid #34516f; color: #e1eefb; background: rgba(13,26,45,.7); }
+    .button-secondary:hover { border-color: var(--cyan); }
+    .footer { border-top: 1px solid rgba(108,157,212,.16); margin-top: 2rem; padding: 1.7rem 0 2.2rem; color: #8fa5be; font-size: .85rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    .footer a { color: #b8d8ef; text-decoration-color: rgba(184,216,239,.4); }
+    @media (max-width: 760px) { .task-list, .resource-grid { grid-template-columns: 1fr; } .task-list li { min-height: 0; } }
+    @media (max-width: 650px) {
+      .wrap { width: min(100% - 1.4rem, 540px); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: .7rem; }
+      .nav-links a:first-child { display: none; }
+      .nav-cta { padding: .48rem .75rem; }
+      .hero { padding-top: 2.5rem; }
+      .section { padding: 2rem 0; }
+      .section-head { display: block; }
+      .section-head p { margin-top: .7rem; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+  
+    .dossier-frame img{max-height:490px;object-fit:cover}
+    .hero-with-image{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(230px,1fr);gap:2rem;align-items:center}
+    .hero-illustration{border:1px solid #21415e;border-radius:18px;overflow:hidden;background:#08182b;box-shadow:0 12px 30px #0003}
+    .hero-illustration img{display:block;width:100%;height:auto;max-height:310px;object-fit:cover}
+    @media(max-width:700px){.hero-with-image{grid-template-columns:1fr;gap:1rem}.hero-illustration{max-width:360px}.hero-illustration img{max-height:230px}}
+    .incident-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .db{font: .93rem/1.9 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;color:#a9eaff;background:#07101f;border:1px solid #21415e;border-radius:1rem;padding:1.2rem}
+    .resource-card{min-height:165px}
+    .resource-card .button{font-size:.85rem}
+    details.video details,details.video{width:100%}
+    details.video summary{cursor:pointer;list-style:none}
+    details.video summary::-webkit-details-marker{display:none}
+    .video-content{padding-top:1.2rem;max-width:780px}
+    .video-content iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:.9rem}
+    .subhead{color:var(--cyan);font:750 .75rem ui-monospace,monospace;letter-spacing:.13em}
+    .inline-note{color:var(--muted);font-size:.88rem}
+    @media(max-width:760px){.incident-grid{grid-template-columns:1fr}}
+
+.game{background:#0d1a2d;border:1px solid #1c3554;border-radius:18px;padding:20px;margin:18px 0}.game h2{margin-top:0}.game button,.game select,.game input:not([type=file]),.game textarea{font:inherit}.game button{background:#073b55;color:white;border:1px solid #00d9ff;border-radius:10px;padding:10px 15px;cursor:pointer;margin:5px}.game button:hover{background:#005e7d}.game input:not([type=file]),.game textarea,.game select{color:#eaf8ff;background:#07101f;border:1px solid #2b5677;padding:10px;border-radius:8px;max-width:100%}.game .ok{color:#68f0a0}.game .bad{color:#ffd05a}.game .hash{word-break:break-all;font-family:monospace;color:#7de8ff}.game .tiles{display:flex;flex-wrap:wrap;gap:10px}.game .tile{padding:12px;border:1px solid #00d9ff;border-radius:10px;background:#102c48;cursor:grab}.game .drop{padding:15px;border:1px dashed #62dfff;border-radius:10px;min-height:68px;margin:10px 0}.game .drop.over{background:#174a62}.game .muted{color:#9fb2ca}.game .step{color:#00d9ff;font-size:.85rem;letter-spacing:.12em}.game .hidden{display:none!important}.game .btn{display:inline-block;background:#073b55;border:1px solid #00d9ff;border-radius:10px;padding:9px 13px;text-decoration:none}.game label{display:block;margin:10px 0}.game .status{padding:10px;border-left:3px solid #00d9ff;margin:12px 0}.game pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#07101f;padding:14px;border-radius:10px}
+@media print{header,.topbar,.footer,.no-print,button{display:none!important}body{background:white!important;color:black!important}.game{color:black!important;background:white!important;border-color:#999!important}.game .hash{color:black!important}}
+
+input,textarea,select{background:#09172a;color:#eef6ff;border:1px solid #345577;border-radius:10px;padding:12px;font:inherit;max-width:100%;width:100%}button{cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}.mini{font-size:.86rem;color:#a9bed5}.feedback{margin-top:12px;min-height:24px;color:#68f0a0}.chip{display:inline-block;border:1px solid #2c5c7e;border-radius:12px;padding:10px;margin:5px;background:#0c2340}.good{color:#68f0a0}.bad{color:#ff8585}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#071222;padding:15px;border:1px solid #274263;border-radius:12px}.stack{display:grid;gap:14px}.btn{display:inline-block;background:#093452;border:1px solid #13c6ed;color:#eef6ff;padding:11px 16px;border-radius:11px;font:inherit;cursor:pointer}.btn:hover{background:#125477}.btn.primary{background:#008caf}.layout{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.box7{background:#0d1a2d;border:1px solid #24435f;padding:18px;border-radius:16px}.box7 h3{margin-top:0}.drag{cursor:grab;touch-action:manipulation}.target{min-height:88px;border:1px dashed #38b7d6;border-radius:12px;padding:12px;margin-top:10px}.target:focus{outline:2px solid cyan}details summary{cursor:pointer} .report-only{display:none}@media print{header,.no-print,button,.btn,form{display:none!important}.report-only{display:block}body{background:#fff;color:#000}.box7{background:white;color:black;border:1px solid #aaa}.feedback{color:black}}
+</style></head><body><header class="topbar"><nav class="nav wrap"><a class="brand" href="../index.html"><span class="brand-mark">⌘</span><span>CYBERLAB<small>КІБЕРБЕЗПЕКА</small></span></a><div class="nav-links"><a href="../index.html#missions">Усі місії</a></div></nav></header><main class="wrap" style="padding:40px 0 70px"><div class="eyebrow">CYBERLAB // CASE 007 · WEBBOT</div><h1>🔎 Перевірка підпису</h1><p class="lead">Ви — аналітик CyberLab. Пройдіть усі етапи, зберіть докази та отримайте підсумковий звіт. Неправильні відповіді не відкривають наступний крок.</p><div class="box7"><label>Ім’я або псевдонім аналітика<input id="student" placeholder="Наприклад, Alex_404" maxlength="70"></label></div><div class="box7" id="bot"><div class="subhead" id="progress"></div><h2 id="question"></h2><div id="choices" class="stack"></div><p id="feedback" class="feedback" aria-live="polite"></p><button id="next" class="btn primary" hidden>Продовжити →</button></div><div id="done" class="box7" hidden><h2>🟢 MISSION 07 COMPLETE</h2><p>Усі обов’язкові завдання виконано. Відкрито фінальний ключ і PDF-звіт.</p><h3 id="flag"></h3><p>У звіті будуть ім’я, результати, висновки й час проходження.</p><button class="btn primary" onclick="window.print()">📄 Зберегти PDF-звіт</button><button class="btn" onclick="restart()">Почати спочатку</button></div><section id="report" class="report-only"><h1>CYBERLAB — ЗВІТ МІСІЇ 07</h1><p id="rstudent"></p><p id="rdate"></p><p id="rscore"></p><p>Перевірено: різницю між хешем і підписом, секретність приватного ключа, довіру до публічного ключа, зміну підписаних даних, ризики підроблених наказів.</p><p id="rflag"></p><div id="ranswers"></div></section><script>
+const steps=[{"q": "🔴 CYBERLAB // CASE 007. Отримано CyberLab_Update.exe і CyberLab_Update.sig. Хеш збігається, але хтось міг підмінити і файл, і контрольну суму. Чи доводить збіг SHA-256, хто опублікував файл?", "opts": ["Так, доводить автора", "Ні, він перевіряє відповідність даних"], "correct": 1, "explain": "Хеш не засвідчує автора."}, {"q": "Два повідомлення з різними SHA-256 виглядають офіційно. Якому довіряти?", "opts": ["Тому, що прийшло першим", "Тому, що має логотип", "Недостатньо даних: треба перевірити джерело"], "correct": 2, "explain": "Зовнішній вигляд не є доказом."}, {"q": "CyberLab створив пару ключів. Яким підписують документ?", "opts": ["Приватним", "Публічним"], "correct": 0, "explain": "Приватний ключ має залишатися секретним."}, {"q": "Випадково опублікували публічний ключ. Це інцидент?", "opts": ["Так, його потрібно приховати", "Ні, його призначено для поширення"], "correct": 1, "explain": "Публічний ключ використовують для перевірки."}, {"q": "Що з цього є криптографічним цифровим підписом?", "opts": ["Скан підпису директора", "Картинка печатки", "Підпис, створений приватним ключем і перевірений публічним"], "correct": 2, "explain": "Зображення легко скопіювати."}, {"q": "🚨 Наказ URGENT_SECURITY_ORDER.pdf вимагає вимкнути MFA. Є логотип, печатка й order.sig. Чи доводить це його справжність?", "opts": ["Так", "Ні"], "correct": 1, "explain": "Зовнішні ознаки не доводять справжності."}, {"q": "Перевірка order.sig із наданим публічним ключем дала VALID. Чи доведено, що ключ належить CyberLab?", "opts": ["Так", "Ні, власника ключа ще треба перевірити"], "correct": 1, "explain": "Будь-хто може назвати свій ключ CyberLab Official."}, {"q": "На довіреному ресурсі відбиток ключа 3F:72:91:A8:44, а у листі — 8B:11:47:C2:90. Який висновок?", "opts": ["Відбитки різні: ключ із листа не підтверджений як офіційний", "Назва ключа важливіша за відбиток"], "correct": 0, "explain": "Відбитки не збігаються."}, {"q": "Ви знайшли справжній security_order.pdf, підпис перевіряється довіреним ключем. Потім змінили 15:00 на 16:00. Що станеться з перевіркою попереднього підпису?", "opts": ["Залишиться VALID", "Стане INVALID"], "correct": 1, "explain": "Підпис прив’язаний до вмісту документа."}, {"q": "Класифікуйте FILE A: SIGNATURE VALID, KEY VERIFIED.", "opts": ["Підпис коректний і перевірений довіреним ключем", "Файл заражений", "Автор невідомий"], "correct": 0, "explain": "Перевірка пройдена, але це не гарантує безпечності змісту."}, {"q": "FILE B: SIGNATURE INVALID, KEY VERIFIED. Що ми знаємо?", "opts": ["Документ точно містить вірус", "Підпис не проходить перевірку", "Ключ приватний"], "correct": 1, "explain": "Це не доказ вірусу."}, {"q": "FILE C: SIGNATURE VALID, KEY UNKNOWN. Що ми знаємо?", "opts": ["Документ точно від CyberLab", "Підпис відповідає ключу, але його власника не встановлено"], "correct": 1, "explain": "Власник публічного ключа невідомий."}, {"q": "Фінальна пастка: цифровий підпис робить повідомлення секретним?", "opts": ["Так", "Ні, для конфіденційності потрібне шифрування"], "correct": 1, "explain": "Підпис не приховує текст."}, {"q": "Останнє рішення. Документ із перевіреним підписом наказує вимкнути MFA. Як діє відповідальний аналітик?", "opts": ["Виконує негайно, бо підпис VALID", "Окремо перевіряє повноваження та зміст через незалежний канал"], "correct": 1, "explain": "Криптографічна справжність не дорівнює безпечності інструкції."}];const $=id=>document.getElementById(id);let i=0,answers=[],passed=false;function render(){let s=steps[i];$('progress').textContent=`ЕТАП ${i+1} / ${steps.length}`;$('question').textContent=s.q;$('feedback').textContent='';$('next').hidden=true;$('choices').innerHTML='';s.opts.forEach((t,k)=>{let b=document.createElement('button');b.className='btn';b.textContent=t;b.onclick=()=>{if(k===s.correct){$('feedback').textContent='✓ Правильно. '+s.explain;answers[i]={question:s.q,answer:t};$('choices').querySelectorAll('button').forEach(x=>x.disabled=true);$('next').hidden=false}else{$('feedback').textContent='Спробуйте ще раз. Перевірте, що саме можна довести.'}};$('choices').append(b)})}$('next').onclick=()=>{i++;if(i<steps.length)render();else complete()};function complete(){passed=true;$('bot').hidden=true;$('done').hidden=false;$('flag').textContent='FLAG{WRONG_KEY_TRUST}';$('rflag').textContent='Ключ місії: FLAG{WRONG_KEY_TRUST}';$('rstudent').textContent='Аналітик: '+($('student').value.trim()||'Без імені');$('rdate').textContent='Дата: '+new Date().toLocaleString('uk-UA');$('rscore').textContent='Успішно виконано: '+answers.length+' / '+steps.length;$('ranswers').innerHTML='';answers.forEach((a,k)=>{let p=document.createElement('p');p.textContent=(k+1)+'. '+a.question+' — '+a.answer;$('ranswers').append(p)})}function restart(){i=0;answers=[];passed=false;$('bot').hidden=false;$('done').hidden=true;render()}render();
+</script></main><footer class="footer"><div class="wrap footer-row"><span>CYBERLAB · CASE 007</span><a href="../index.html#missions">Усі місії ↗</a></div></footer></body></html>
