@@ -84,14 +84,23 @@ function shufflePractice6(){
  if(shuffled.every((t,i)=>t===tokens[i]))shuffled.push(shuffled.shift());
  shuffled.forEach(t=>pool.appendChild(t));
 }
-function setupDrag(i){const pool=document.getElementById("pool"+i);dragData[i].forEach(([label,correct],idx)=>{let t=document.createElement("button");t.type="button";t.className="token";t.textContent=label;t.dataset.correct=correct;t.dataset.id=idx;t.draggable=true;t.onclick=()=>{if(completed.has(i))return;document.querySelectorAll("#s"+i+" .token").forEach(x=>x.classList.remove("selected"));t.classList.add("selected");picked=t};t.ondragstart=e=>{picked=t;e.dataTransfer.setData("text/plain",i+":"+idx)};pool.appendChild(t)});if(i===6)shufflePractice6();
+function shufflePractice3(){
+ const pool=document.getElementById("pool3");
+ const tokens=[...pool.querySelectorAll(".token")];
+ const shuffled=tokens.slice();
+ for(let j=shuffled.length-1;j>0;j--){const k=Math.floor(Math.random()*(j+1));[shuffled[j],shuffled[k]]=[shuffled[k],shuffled[j]]}
+ // Never leave the four cards in the correct asset-threat-weak-impact order.
+ if(shuffled.every((t,i)=>t.dataset.id===String(i)))shuffled.push(shuffled.shift());
+ shuffled.forEach(t=>pool.appendChild(t));
+}
+function setupDrag(i){const pool=document.getElementById("pool"+i);dragData[i].forEach(([label,correct],idx)=>{let t=document.createElement("button");t.type="button";t.className="token";t.textContent=label;t.dataset.correct=correct;t.dataset.id=idx;t.draggable=true;t.onclick=()=>{if(completed.has(i))return;document.querySelectorAll("#s"+i+" .token").forEach(x=>x.classList.remove("selected"));t.classList.add("selected");picked=t};t.ondragstart=e=>{picked=t;e.dataTransfer.setData("text/plain",i+":"+idx)};pool.appendChild(t)});if(i===6)shufflePractice6();if(i===3)shufflePractice3();
 document.querySelectorAll("#s"+i+" .drop").forEach(d=>{d.ondragover=e=>{e.preventDefault();d.classList.add("active")};d.ondragleave=()=>d.classList.remove("active");d.ondrop=e=>{e.preventDefault();d.classList.remove("active");moveToken(i,d)};d.onclick=e=>{if(e.target.closest(".token"))return;moveToken(i,d)};d.onkeydown=e=>{if(e.target===d&&(e.key==="Enter"||e.key===" ")){e.preventDefault();moveToken(i,d)}};if(i===2){const add=document.createElement("button");add.type="button";add.className="drop-add";add.textContent="＋ Помістити сюди";add.onclick=e=>{e.stopPropagation();moveToken(i,d)};d.appendChild(add)}})}
 function moveToken(i,d){if(completed.has(i)||!picked||!document.getElementById("s"+i).contains(picked))return;if(i!==2){const current=d.querySelector(".token");if(current&&current!==picked)document.getElementById("pool"+i).appendChild(current)}d.appendChild(picked);picked.classList.remove("selected");picked=null}
 function resetDrag(i){
- if(completed.has(i)&&i!==6)return;
+ if(completed.has(i)&&i!==6&&i!==3)return;
  const pool=document.getElementById("pool"+i);
  dragData[i].forEach((_,idx)=>{const token=document.querySelector('#s'+i+' .token[data-id="'+idx+'"]');token.classList.remove("selected");pool.appendChild(token)});
- if(i===6){completed.delete(6);delete answers[6];document.getElementById("next6").classList.add("hidden");shufflePractice6();update()}
+ if(i===6||i===3){completed.delete(i);delete answers[i];document.getElementById("next"+i).classList.add("hidden");if(i===6)shufflePractice6();else shufflePractice3();update()}
  const f=document.getElementById("f"+i);f.textContent="";f.className="feedback";picked=null;
 }
 function checkDrag(i){if(completed.has(i))return;const drops=[...document.querySelectorAll("#s"+i+" .drop")];const tokens=[...document.querySelectorAll("#s"+i+" .token")];const f=document.getElementById("f"+i);if(tokens.some(t=>t.parentElement.classList.contains("pool"))){f.textContent="Спочатку розподіліть усі картки.";f.className="feedback no";return}let wrong=drops.filter(d=>[...d.querySelectorAll(".token")].some(t=>t.dataset.correct!==d.dataset.drop));if(wrong.length){f.textContent=i===2?"Перевірте межі дозволу: домен, час і заборонені дії.":"Є неточність. Поверніться до алгоритму й перевірте значення кожної картки.";f.className="feedback no";return}completed.add(i);answers[i]=dragData[i].map(x=>x[0]+" → "+x[1]).join("; ");f.textContent=i===2?"✓ Усі дії розподілено правильно. Дозвіл не можна розширювати самостійно.":i===3?"✓ Ви побудували повний ланцюг: актив → загроза → вразливість → наслідок.":"✓ Послідовність обґрунтована: спочатку збереження доказів, потім перевірка та узгоджені дії.";f.className="feedback ok";document.getElementById("next"+i).classList.remove("hidden");update()}
