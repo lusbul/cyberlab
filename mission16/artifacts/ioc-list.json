@@ -1,0 +1,19 @@
+{
+  "indicators": [
+    {
+      "value": "198.51.100.42",
+      "type": "ip",
+      "status": "requires_context"
+    },
+    {
+      "value": "S-7C21",
+      "type": "session",
+      "status": "training_only"
+    },
+    {
+      "value": "cyberlab-support.example",
+      "type": "domain",
+      "status": "suspicious_not_confirmed"
+    }
+  ]
+}

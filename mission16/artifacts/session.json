@@ -1,0 +1,13 @@
+{
+  "session_id": "S-7C21",
+  "cookie_flags": {
+    "Secure": true,
+    "HttpOnly": true,
+    "SameSite": "Lax"
+  },
+  "login": "2026-10-19T02:17:36+03:00",
+  "logout": "2026-10-19T02:20:00+03:00",
+  "server_invalidated_on_logout": false,
+  "reused_at": "2026-10-19T02:22:11+03:00",
+  "note": "Навчальні дані. Ідентифікатор вигаданий; успішний запит не встановлює особу користувача."
+}

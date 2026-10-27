@@ -1,0 +1,3 @@
+CyberLab / configuration v2
+backup_window=02:00-02:30
+preview_access=enabled

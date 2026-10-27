@@ -1,0 +1,10 @@
+From: "CyberLab Support" <helpdesk@cyberlab-support.example>
+To: analyst@cyberlab.example
+Date: Mon, 19 Oct 2026 01:48:00 +0300
+Subject: Verify your access
+Message-ID: <case016-phish@cyberlab-support.example>
+Content-Type: text/plain; charset=UTF-8
+
+Ваш доступ потрібно підтвердити: https://cyberlab-support.example/verify
+Підказка для аналітика (Base64): Q0hFQ0sgVEhFIFVSTA==
+Це навчальний лист. Факт отримання не доводить переходу за посиланням.

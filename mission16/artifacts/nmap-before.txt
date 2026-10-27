@@ -1,0 +1,6 @@
+Nmap scan report for 192.0.2.45
+22/tcp filtered ssh
+80/tcp open http
+443/tcp open https
+3306/tcp filtered mysql
+8080/tcp closed http-proxy

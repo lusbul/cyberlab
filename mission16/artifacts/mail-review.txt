@@ -1,0 +1,1 @@
+Перевірка: домен cyberlab-support.example не дорівнює cyberlab.example. Base64 розкодовує CHECK THE URL. В auth/web логах немає підтвердження переходу за посиланням.
